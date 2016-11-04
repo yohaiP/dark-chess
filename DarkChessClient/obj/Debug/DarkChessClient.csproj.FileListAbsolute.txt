@@ -1,0 +1,13 @@
+c:\users\אני\documents\visual studio 2015\Projects\DarkChessClient\DarkChessClient\bin\Debug\DarkChessClient.exe.config
+c:\users\אני\documents\visual studio 2015\Projects\DarkChessClient\DarkChessClient\bin\Debug\DarkChessClient.exe
+c:\users\אני\documents\visual studio 2015\Projects\DarkChessClient\DarkChessClient\bin\Debug\DarkChessClient.pdb
+c:\users\אני\documents\visual studio 2015\Projects\DarkChessClient\DarkChessClient\obj\Debug\DarkChessClient.csprojResolveAssemblyReference.cache
+c:\users\אני\documents\visual studio 2015\Projects\DarkChessClient\DarkChessClient\obj\Debug\DarkChessClient.Properties.Resources.resources
+c:\users\אני\documents\visual studio 2015\Projects\DarkChessClient\DarkChessClient\obj\Debug\DarkChessClient.csproj.GenerateResource.Cache
+c:\users\אני\documents\visual studio 2015\Projects\DarkChessClient\DarkChessClient\obj\Debug\DarkChessClient.exe
+c:\users\אני\documents\visual studio 2015\Projects\DarkChessClient\DarkChessClient\obj\Debug\DarkChessClient.pdb
+C:\Users\אני\documents\visual studio 2015\Projects\DarkChessClient\DarkChessClient\obj\Debug\DarkChessClient.ConnectDialog.resources
+C:\Users\אני\documents\visual studio 2015\Projects\DarkChessClient\DarkChessClient\obj\Debug\DarkChessClient.PromotionDialog.resources
+C:\Users\אני\documents\visual studio 2015\Projects\DarkChessClient\DarkChessClient\obj\Debug\DarkChessClient.DarkChessClient.resources
+C:\Users\אני\documents\visual studio 2015\Projects\DarkChessClient\DarkChessClient\bin\Debug\GameNotations.dll
+C:\Users\אני\documents\visual studio 2015\Projects\DarkChessClient\DarkChessClient\bin\Debug\GameNotations.pdb
