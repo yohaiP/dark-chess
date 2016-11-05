@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameNotations
 {
-    public class BoardSquare
+    public class Queen : GamePiece
     {
-        readonly public Tuple<byte, byte> LocationOnBoard;
-        GamePiece ContainedPiece;
-        bool isSeen;
     }
 }

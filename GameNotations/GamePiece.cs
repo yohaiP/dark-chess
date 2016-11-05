@@ -6,10 +6,17 @@ using System.Threading.Tasks;
 
 namespace GameNotations
 {
-    class GamePiece
+    public abstract class GamePiece
     {
         readonly public Player PlayerRelevance;
-        public List<Tuple<int, int>> MovementDirections { get; private set; }
-        readonly public bool Ranged;
+        public List<Tuple<int, int>> MovementDirections { get; protected set; }
+        public BoardSquare ContainingSquare;
+        public bool Ranged { get; protected set; }
+
+        public GamePiece(Player player, BoardSquare boardSquare)
+        {
+            this.PlayerRelevance = player;
+            this.ContainingSquare = boardSquare;
+        }
     }
 }

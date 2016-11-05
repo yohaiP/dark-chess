@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GameNotations;
 
-namespace GameNotations
+namespace DarkChessClient
 {
-    public class GameBoard
+    class BoardStateManager
     {
-        static BoardSquare[,] board;
+        GameBoard board;
     }
 }

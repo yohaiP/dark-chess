@@ -46,11 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bishop.cs" />
     <Compile Include="BoardSquare.cs" />
     <Compile Include="GameBoard.cs" />
     <Compile Include="GamePiece.cs" />
+    <Compile Include="King.cs" />
+    <Compile Include="Knight.cs" />
+    <Compile Include="Pawn.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queen.cs" />
+    <Compile Include="Rook.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

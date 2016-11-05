@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameNotations
 {
-    class Player
+    public class Player
     {
         public enum color
         {

@@ -11,3 +11,6 @@ C:\Users\אני\documents\visual studio 2015\Projects\DarkChessClient\DarkChessC
 C:\Users\אני\documents\visual studio 2015\Projects\DarkChessClient\DarkChessClient\obj\Debug\DarkChessClient.DarkChessClient.resources
 C:\Users\אני\documents\visual studio 2015\Projects\DarkChessClient\DarkChessClient\bin\Debug\GameNotations.dll
 C:\Users\אני\documents\visual studio 2015\Projects\DarkChessClient\DarkChessClient\bin\Debug\GameNotations.pdb
+C:\Users\אני\Documents\Visual Studio 2015\Projects\DarkChess\DarkChessClient\bin\Debug\DarkChessClient.exe.config
+C:\Users\אני\Documents\Visual Studio 2015\Projects\DarkChess\DarkChessClient\obj\Debug\DarkChessClient.exe
+C:\Users\אני\Documents\Visual Studio 2015\Projects\DarkChess\DarkChessClient\obj\Debug\DarkChessClient.pdb
