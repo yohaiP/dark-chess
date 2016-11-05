@@ -7,6 +7,8 @@
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
+        
+
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
@@ -30,14 +32,14 @@
         {
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.connectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pointerBoardLocationStrip = new System.Windows.Forms.StatusStrip();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.XPointerBoardLocationStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.YPointerBoardLocationStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.turnNotificationLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.promotionNotificationLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.board = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
-            this.pointerBoardLocationStrip.SuspendLayout();
+            this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.board)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,7 +49,7 @@
             this.connectToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(784, 24);
+            this.menuStrip.Size = new System.Drawing.Size(554, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -57,28 +59,54 @@
             this.connectToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.connectToolStripMenuItem.Text = "connect...";
             // 
-            // pointerBoardLocationStrip
+            // statusStrip
             // 
-            this.pointerBoardLocationStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.XPointerBoardLocationStatusLabel,
-            this.YPointerBoardLocationStatusLabel});
-            this.pointerBoardLocationStrip.Location = new System.Drawing.Point(0, 581);
-            this.pointerBoardLocationStrip.Name = "pointerBoardLocationStrip";
-            this.pointerBoardLocationStrip.Size = new System.Drawing.Size(784, 22);
-            this.pointerBoardLocationStrip.TabIndex = 1;
-            this.pointerBoardLocationStrip.Text = "statusStrip1";
+            this.YPointerBoardLocationStatusLabel,
+            this.turnNotificationLabel,
+            this.promotionNotificationLabel});
+            this.statusStrip.Location = new System.Drawing.Point(0, 579);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(554, 24);
+            this.statusStrip.TabIndex = 1;
+            this.statusStrip.Text = "statusStrip1";
             // 
             // XPointerBoardLocationStatusLabel
             // 
             this.XPointerBoardLocationStatusLabel.Name = "XPointerBoardLocationStatusLabel";
-            this.XPointerBoardLocationStatusLabel.Size = new System.Drawing.Size(45, 17);
+            this.XPointerBoardLocationStatusLabel.Size = new System.Drawing.Size(45, 19);
             this.XPointerBoardLocationStatusLabel.Text = "BoardX";
             // 
             // YPointerBoardLocationStatusLabel
             // 
             this.YPointerBoardLocationStatusLabel.Name = "YPointerBoardLocationStatusLabel";
-            this.YPointerBoardLocationStatusLabel.Size = new System.Drawing.Size(45, 17);
+            this.YPointerBoardLocationStatusLabel.Size = new System.Drawing.Size(45, 19);
             this.YPointerBoardLocationStatusLabel.Text = "BoardY";
+            // 
+            // turnNotificationLabel
+            // 
+            this.turnNotificationLabel.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.turnNotificationLabel.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenInner;
+            this.turnNotificationLabel.ForeColor = System.Drawing.Color.Blue;
+            this.turnNotificationLabel.Name = "turnNotificationLabel";
+            this.turnNotificationLabel.Size = new System.Drawing.Size(65, 19);
+            this.turnNotificationLabel.Text = "your turn?";
+            this.turnNotificationLabel.ToolTipText = "its flashing blue when its your turn to play";
+            // 
+            // promotionNotificationLabel
+            // 
+            this.promotionNotificationLabel.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.promotionNotificationLabel.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenInner;
+            this.promotionNotificationLabel.ForeColor = System.Drawing.Color.Red;
+            this.promotionNotificationLabel.Name = "promotionNotificationLabel";
+            this.promotionNotificationLabel.Size = new System.Drawing.Size(164, 19);
+            this.promotionNotificationLabel.Text = "promotion has been occured";
+            this.promotionNotificationLabel.ToolTipText = "Notifications about pawn promotions goes here";
             // 
             // board
             // 
@@ -92,48 +120,27 @@
             this.board.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.board.TabIndex = 2;
             this.board.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Location = new System.Drawing.Point(557, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 15);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Your turn!";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label2.Location = new System.Drawing.Point(556, 43);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(182, 15);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "An enemy pawn has been promoted!";
+            this.board.Click += board_Click;
             // 
             // DarkChessClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(784, 603);
-            this.ControlBox = false;
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(554, 603);
             this.Controls.Add(this.board);
-            this.Controls.Add(this.pointerBoardLocationStrip);
+            this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);
+            this.HelpButton = true;
             this.MainMenuStrip = this.menuStrip;
             this.MaximizeBox = false;
             this.Name = "DarkChessClient";
             this.Text = "DarkChess client";
+            this.Load += new System.EventHandler(this.DarkChessClient_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
-            this.pointerBoardLocationStrip.ResumeLayout(false);
-            this.pointerBoardLocationStrip.PerformLayout();
+            this.statusStrip.ResumeLayout(false);
+            this.statusStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.board)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -144,14 +151,14 @@
 
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem connectToolStripMenuItem;
-        private System.Windows.Forms.StatusStrip pointerBoardLocationStrip;
+        private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel XPointerBoardLocationStatusLabel;
         private System.Windows.Forms.ToolStripStatusLabel YPointerBoardLocationStatusLabel;
-        private System.Windows.Forms.PictureBox board;
 
-        System.Drawing.Graphics gameBoardGraphics;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        public System.Windows.Forms.PictureBox board;
+
+        private System.Windows.Forms.ToolStripStatusLabel turnNotificationLabel;
+        private System.Windows.Forms.ToolStripStatusLabel promotionNotificationLabel;
     }
 }
 

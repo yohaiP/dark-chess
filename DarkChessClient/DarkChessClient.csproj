@@ -64,6 +64,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BoardGraphicsManager.cs" />
     <Compile Include="ClientUI.cs">
       <SubType>Form</SubType>
     </Compile>

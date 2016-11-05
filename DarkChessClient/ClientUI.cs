@@ -18,11 +18,17 @@ namespace DarkChessClient
             InitializeComponent();
         }
 
-        void board_MouseClick(object sender, EventArgs e)
+        void board_Click(object sender, EventArgs e)
         {
             MouseEventArgs me = (MouseEventArgs)e;
             XPointerBoardLocationStatusLabel.Text = $"{me.X}";
             YPointerBoardLocationStatusLabel.Text = $"{me.Y}";
+            BoardGraphicsManager.test(me.X, me.Y);
+        }
+
+        private void DarkChessClient_Load(object sender, EventArgs e)
+        {
+            BoardGraphicsManager.CreateGraphics(sender);
         }
     }
 }
