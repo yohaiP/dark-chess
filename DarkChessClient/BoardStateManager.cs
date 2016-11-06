@@ -9,6 +9,6 @@ namespace DarkChessClient
 {
     class BoardStateManager
     {
-        GameBoard board;
+        public GameBoard board;
     }
 }

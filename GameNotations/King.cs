@@ -8,9 +8,9 @@ namespace GameNotations
 {
     public class King : GamePiece
     {
-        King(Player player, BoardSquare boardSquare):base(player, boardSquare)
+        King(Player player, BoardSquare square) : base(player, square)
         {
-            this.Ranged = false;
+            Ranged = false;
 
             this.MovementDirections = new List<Tuple<int, int>>(8);
             MovementDirections.Add(new Tuple<int, int>(0, 1));
