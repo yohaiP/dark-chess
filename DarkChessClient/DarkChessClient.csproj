@@ -119,9 +119,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="chess graphics\board.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\GameNotations\GameNotations.csproj">
       <Project>{8428c9e2-5920-410f-9105-562343dd29d1}</Project>
       <Name>GameNotations</Name>
@@ -139,6 +136,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

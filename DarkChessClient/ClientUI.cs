@@ -23,7 +23,7 @@ namespace DarkChessClient
             MouseEventArgs me = (MouseEventArgs)e;
             XPointerBoardLocationStatusLabel.Text = $"{me.X}";
             YPointerBoardLocationStatusLabel.Text = $"{me.Y}";
-            BoardGraphicsManager.test(me.X, me.Y);
+            BoardGraphicsManager.test(me.Location);
         }
 
         private void DarkChessClient_Load(object sender, EventArgs e)

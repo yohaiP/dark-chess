@@ -110,7 +110,7 @@
             // 
             // board
             // 
-            this.board.BackgroundImage = global::DarkChessClient.Properties.Resources.board;
+            this.board.BackgroundImage = System.Drawing.Image.FromFile(@"chess graphics/board.png");
             this.board.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.board.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.board.Cursor = System.Windows.Forms.Cursors.Default;

@@ -12,7 +12,9 @@ namespace DarkChessClient
     {
         static Graphics graphics;
         static Bitmap pieces;
+        static Bitmap unseen;
         static Size boardSquareSize;
+        static Size boardSquareCenter;
 
         // Class initialization method
         public static void CreateGraphics(object sender)
@@ -20,82 +22,145 @@ namespace DarkChessClient
             DarkChessClient client = (DarkChessClient)sender;
 
             //Defining the size of a single square from the board
-            Size size = client.board.BackgroundImage.Size;
+            Size size = client.board.Size;
             boardSquareSize = new Size(size.Width / 8, size.Height / 8);
+            boardSquareCenter = new Size(boardSquareSize.Width / 2, boardSquareSize.Height / 2);
 
             graphics = client.board.CreateGraphics();
 
-            pieces = (Bitmap)Image.FromFile(@"pieces.png", true);
-            pieces.MakeTransparent();
+            pieces = (Bitmap)Image.FromFile(@"chess graphics/pieces.png");
+            unseen = (Bitmap)Image.FromFile(@"chess graphics/unseen.png");
+            pieces.MakeTransparent(Color.Green);
+            unseen.MakeTransparent(Color.Green);
         }
 
-        static Rectangle ImagePartOfPiece(GamePiece piece)
+        static Tuple<int, int> squareOfClick(Point click)
+        {
+            int temp;
+            int minDist = int.MaxValue;
+            Point[,] boardG = new Point[8, 8];
+            int[,] boardIndex = new int[8, 8];
+            #region defining centers
+            for (int i = 0; i < boardG.GetLength(0); i++)
+            {
+                for (int j = 0; j < boardG.GetLength(1); j++)
+                {
+                    boardG[i, j] = new Point(i * boardSquareSize.Width + boardSquareCenter.Width, j * boardSquareSize.Height + boardSquareCenter.Height);
+                }
+            } 
+            #endregion
+
+            #region finding the nearest square center
+            for (int i = 0; i < boardG.GetLength(0); i++)
+            {
+                for (int j = 0; j < boardG.GetLength(1); j++)
+                {
+                    boardG[i, j] = new Point(boardG[i, j].X - click.X, boardG[i, j].Y - click.Y);
+                    temp = boardG[i, j].X * boardG[i, j].X + boardG[i, j].Y * boardG[i, j].Y;
+
+                    // temp is containing the result for the calculation of the distance of centers to the click.
+                    // since theres no way to store the distance with the respective square position i putted it in
+                    // the point's X because i dont need the point for calculations anymore.
+                    boardG[i, j].X = temp;
+
+                    minDist = Math.Min(minDist, temp);
+                }
+            }
+            #endregion
+
+            #region finding the index of the nearest center
+            for (int i = 0; i < boardG.GetLength(0); i++)
+            {
+                for (int j = 0; j < boardG.GetLength(0); j++)
+                {
+                    if (boardG[i, j].X == minDist)
+                        return Tuple.Create(i, j);
+                }
+            }
+            return Tuple.Create(-1, -1); 
+            #endregion
+
+        }
+
+        static Tuple<int, int> pieceImagePosition(Type pieceType, Player.color color)
         {
             #region White pieces
-            if (piece.PlayerRelevance.PlayersColor == Player.color.White)
+            if (color == Player.color.White)
             {
-                if (piece is King)
+                if (pieceType.Name.Equals("King"))
                 {
-                    return new Rectangle();
+                    return Tuple.Create<int, int>(0, 0);
                 }
-                if (piece is Queen)
+                if (pieceType.Name.Equals("Queen"))
                 {
-                    return new Rectangle();
+                    return Tuple.Create<int, int>(0, 1);
                 }
-                if (piece is Bishop)
+                if (pieceType.Name.Equals("Bishop"))
                 {
-                    return new Rectangle();
+                    return Tuple.Create<int, int>(0, 2);
                 }
-                if (piece is Knight)
+                if (pieceType.Name.Equals("Knight"))
                 {
-                    return new Rectangle();
+                    return Tuple.Create<int, int>(0, 3);
                 }
-                if (piece is Rook)
+                if (pieceType.Name.Equals("Rook"))
                 {
-                    return new Rectangle();
+                    return Tuple.Create<int, int>(0, 4);
                 }
-                if (piece is Pawn)
+                if (pieceType.Name.Equals("Pawn"))
                 {
-                    return new Rectangle();
+                    return Tuple.Create<int, int>(0, 7);
                 }
             }
             #endregion
             #region Black pieces
-            if (piece.PlayerRelevance.PlayersColor == Player.color.Black)
+            else
             {
-                if (piece is King)
+                if (pieceType.Name.Equals("King"))
                 {
-                    return new Rectangle();
+                    return Tuple.Create<int, int>(1, 0);
                 }
-                if (piece is Queen)
+                if (pieceType.Name.Equals("Queen"))
                 {
-                    return new Rectangle();
+                    return Tuple.Create<int, int>(1, 1);
                 }
-                if (piece is Bishop)
+                if (pieceType.Name.Equals("Bishop"))
                 {
-                    return new Rectangle();
+                    return Tuple.Create<int, int>(1, 2);
                 }
-                if (piece is Knight)
+                if (pieceType.Name.Equals("Knight"))
                 {
-                    return new Rectangle();
+                    return Tuple.Create<int, int>(1, 3);
                 }
-                if (piece is Rook)
+                if (pieceType.Name.Equals("Rook"))
                 {
-                    return new Rectangle();
+                    return Tuple.Create<int, int>(1, 4);
                 }
-                if (piece is Pawn)
+                if (pieceType.Name.Equals("Pawn"))
                 {
-                    return new Rectangle();
+                    return Tuple.Create<int, int>(1, 7);
                 }
             }
             #endregion
-            return new Rectangle();
+            return Tuple.Create<int, int>(-1, -1);
         }
 
-        public static void test(int x, int y)
+        static void drawPieceOnBoard(GamePiece piece, Tuple<int, int> square)
         {
+            Tuple<int, int> t = pieceImagePosition(piece.GetType(), piece.PlayerRelevance.PlayersColor);
             Size size = pieces.Size;
-            graphics.DrawImage(pieces, x, y, new Rectangle(0, 0, size.Width / 6, size.Height / 2), GraphicsUnit.Pixel);
+            graphics.DrawImage(pieces, square.Item1*boardSquareSize.Width, square.Item2*boardSquareSize.Height, new Rectangle(t.Item1* (size.Width / 6), t.Item2*( size.Height / 2), size.Width / 6, size.Height / 2), GraphicsUnit.Pixel);
+        }
+
+        static void drawCurrentBoard()
+        {
+        }
+
+        public static void test(Point click)
+        {
+            Tuple<int, int> t = squareOfClick(click);
+            Size size = pieces.Size;
+            graphics.DrawImage(pieces, t.Item1 * boardSquareSize.Width, t.Item2 * boardSquareSize.Height, new Rectangle(0, 0, size.Width / 6, size.Height / 2), GraphicsUnit.Pixel);
         }
     }
 }
