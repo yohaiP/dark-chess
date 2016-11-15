@@ -4,9 +4,9 @@ C:\Users\אני\documents\visual studio 2015\Projects\DarkChessClient\GameNotati
 C:\Users\אני\documents\visual studio 2015\Projects\DarkChessClient\GameNotations\bin\Debug\GameNotations.pdb
 C:\Users\אני\documents\visual studio 2015\Projects\DarkChessClient\GameNotations\obj\Debug\GameNotations.dll
 C:\Users\אני\documents\visual studio 2015\Projects\DarkChessClient\GameNotations\obj\Debug\GameNotations.pdb
-C:\Users\אני\Documents\Visual Studio 2015\Projects\DarkChess\GameNotations\obj\Debug\GameNotations.csprojResolveAssemblyReference.cache
-C:\Users\אני\Documents\Visual Studio 2015\Projects\DarkChess\GameNotations\obj\Debug\GameNotations.dll
-C:\Users\אני\Documents\Visual Studio 2015\Projects\DarkChess\GameNotations\obj\Debug\GameNotations.pdb
 C:\Users\אני\Documents\Visual Studio 2015\Projects\DarkChess\GameNotations\bin\Debug\GameNotations.dll.config
 C:\Users\אני\Documents\Visual Studio 2015\Projects\DarkChess\GameNotations\bin\Debug\GameNotations.dll
 C:\Users\אני\Documents\Visual Studio 2015\Projects\DarkChess\GameNotations\bin\Debug\GameNotations.pdb
+C:\Users\אני\Documents\Visual Studio 2015\Projects\DarkChess\GameNotations\obj\Debug\GameNotations.dll
+C:\Users\אני\Documents\Visual Studio 2015\Projects\DarkChess\GameNotations\obj\Debug\GameNotations.pdb
+C:\Users\אני\Documents\Visual Studio 2015\Projects\DarkChess\GameNotations\obj\Debug\GameNotations.csprojResolveAssemblyReference.cache

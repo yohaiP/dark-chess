@@ -1,0 +1,8 @@
+C:\Users\אני\Documents\Visual Studio 2015\Projects\DarkChess\DarkChessServer\bin\Debug\DarkChessServer.exe.config
+C:\Users\אני\Documents\Visual Studio 2015\Projects\DarkChess\DarkChessServer\bin\Debug\DarkChessServer.exe
+C:\Users\אני\Documents\Visual Studio 2015\Projects\DarkChess\DarkChessServer\bin\Debug\DarkChessServer.pdb
+C:\Users\אני\Documents\Visual Studio 2015\Projects\DarkChess\DarkChessServer\bin\Debug\GameNotations.dll
+C:\Users\אני\Documents\Visual Studio 2015\Projects\DarkChess\DarkChessServer\bin\Debug\GameNotations.pdb
+C:\Users\אני\Documents\Visual Studio 2015\Projects\DarkChess\DarkChessServer\obj\Debug\DarkChessServer.csprojResolveAssemblyReference.cache
+C:\Users\אני\Documents\Visual Studio 2015\Projects\DarkChess\DarkChessServer\obj\Debug\DarkChessServer.exe
+C:\Users\אני\Documents\Visual Studio 2015\Projects\DarkChess\DarkChessServer\obj\Debug\DarkChessServer.pdb

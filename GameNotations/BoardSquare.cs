@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace GameNotations
 {
+    [Serializable]
     public class BoardSquare
     {
-        readonly public Tuple<byte, byte> LocationOnBoard;
+        readonly public Tuple<int, int> LocationOnBoard;
         GamePiece ContainedPiece;
-        bool isSeen;
+        bool IsVisible;
+        bool IsBlocked;
     }
 }

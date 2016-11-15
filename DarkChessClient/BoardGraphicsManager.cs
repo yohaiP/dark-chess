@@ -13,6 +13,7 @@ namespace DarkChessClient
         static Graphics graphics;
         static Bitmap pieces;
         static Bitmap unseen;
+        static Bitmap blocked;
         static Size boardSquareSize;
         static Size boardSquareCenter;
 
@@ -30,8 +31,10 @@ namespace DarkChessClient
 
             pieces = (Bitmap)Image.FromFile(@"chess graphics/pieces.png");
             unseen = (Bitmap)Image.FromFile(@"chess graphics/unseen.png");
+            blocked = (Bitmap)Image.FromFile(@"chess graphics/unseen.png")
             pieces.MakeTransparent(Color.Green);
             unseen.MakeTransparent(Color.Green);
+            blocked.MakeTransparent(Color.Green);
         }
 
         static Tuple<int, int> squareOfClick(Point click)
@@ -152,9 +155,17 @@ namespace DarkChessClient
             graphics.DrawImage(pieces, square.Item1*boardSquareSize.Width, square.Item2*boardSquareSize.Height, new Rectangle(t.Item1* (size.Width / 6), t.Item2*( size.Height / 2), size.Width / 6, size.Height / 2), GraphicsUnit.Pixel);
         }
 
-        static void drawCurrentBoard()
+        static void drawUnseenOnBoard(Tuple<int, int> square)
         {
+            graphics.DrawImage(unseen, square.Item1 * boardSquareSize.Width, square.Item2 * boardSquareSize.Height);
         }
+
+        static void drawBlockedOnBoard(Tuple<int, int> square)
+        {
+            graphics.DrawImage(blocked, square.Item1 * boardSquareSize.Width, square.Item2 * boardSquareSize.Height);
+        }
+
+        static void drawCurrentBoard() { }
 
         public static void test(Point click)
         {
