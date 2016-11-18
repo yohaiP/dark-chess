@@ -24,3 +24,5 @@ C:\Users\אני\Documents\Visual Studio 2015\Projects\DarkChess\DarkChessClient\
 C:\Users\אני\Documents\Visual Studio 2015\Projects\DarkChess\DarkChessClient\obj\Debug\DarkChessClient.Properties.Resources.resources
 C:\Users\אני\Documents\Visual Studio 2015\Projects\DarkChess\DarkChessClient\obj\Debug\DarkChessClient.exe
 C:\Users\אני\Documents\Visual Studio 2015\Projects\DarkChess\DarkChessClient\obj\Debug\DarkChessClient.pdb
+C:\Users\אני\Documents\Visual Studio 2015\Projects\DarkChess\DarkChessClient\bin\Debug\Newtonsoft.Json.dll
+C:\Users\אני\Documents\Visual Studio 2015\Projects\DarkChess\DarkChessClient\bin\Debug\Newtonsoft.Json.xml

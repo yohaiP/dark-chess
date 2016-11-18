@@ -10,8 +10,13 @@ namespace GameNotations
     public class BoardSquare
     {
         readonly public Tuple<int, int> LocationOnBoard;
-        GamePiece ContainedPiece;
-        bool IsVisible;
-        bool IsBlocked;
+        public GamePiece ContainedPiece;
+        public bool IsVisible;
+        public bool IsBlocked;
+
+        public BoardSquare(int i, int j)
+        {
+            LocationOnBoard = Tuple.Create<int, int>(i, j);
+        }
     }
 }

@@ -5,11 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using GameNotations;
+using System.Threading;
 
 namespace DarkChessClient
 {
-    class BoardGraphicsManager
+    static class BoardGraphicsManager
     {
+        static System.Windows.Forms.PictureBox board;
+
         static Graphics graphics;
         static Bitmap pieces;
         static Bitmap unseen;
@@ -23,7 +26,8 @@ namespace DarkChessClient
             DarkChessClient client = (DarkChessClient)sender;
 
             //Defining the size of a single square from the board
-            Size size = client.board.Size;
+            board = client.board;
+            Size size = board.Size;
             boardSquareSize = new Size(size.Width / 8, size.Height / 8);
             boardSquareCenter = new Size(boardSquareSize.Width / 2, boardSquareSize.Height / 2);
 
@@ -31,13 +35,13 @@ namespace DarkChessClient
 
             pieces = (Bitmap)Image.FromFile(@"chess graphics/pieces.png");
             unseen = (Bitmap)Image.FromFile(@"chess graphics/unseen.png");
-            blocked = (Bitmap)Image.FromFile(@"chess graphics/unseen.png")
+            blocked = (Bitmap)Image.FromFile(@"chess graphics/blocked.png");
             pieces.MakeTransparent(Color.Green);
             unseen.MakeTransparent(Color.Green);
             blocked.MakeTransparent(Color.Green);
         }
 
-        static Tuple<int, int> squareOfClick(Point click)
+        public static Tuple<int, int> SquareOfClick(Point click)
         {
             int temp;
             int minDist = int.MaxValue;
@@ -50,7 +54,7 @@ namespace DarkChessClient
                 {
                     boardG[i, j] = new Point(i * boardSquareSize.Width + boardSquareCenter.Width, j * boardSquareSize.Height + boardSquareCenter.Height);
                 }
-            } 
+            }
             #endregion
 
             #region finding the nearest square center
@@ -80,37 +84,38 @@ namespace DarkChessClient
                         return Tuple.Create(i, j);
                 }
             }
-            return Tuple.Create(-1, -1); 
+            return Tuple.Create(-1, -1);
             #endregion
 
         }
 
-        static Tuple<int, int> pieceImagePosition(Type pieceType, Player.color color)
+        // piece image for drawing pieces on the board
+        static Tuple<int, int> pieceImagePosition(GamePiece piece)
         {
             #region White pieces
-            if (color == Player.color.White)
+            if (piece.PlayerRelevance.PlayersColor == Player.color.White)
             {
-                if (pieceType.Name.Equals("King"))
+                if (piece is King)
                 {
                     return Tuple.Create<int, int>(0, 0);
                 }
-                if (pieceType.Name.Equals("Queen"))
+                if (piece is Queen)
                 {
                     return Tuple.Create<int, int>(0, 1);
                 }
-                if (pieceType.Name.Equals("Bishop"))
+                if (piece is Bishop)
                 {
                     return Tuple.Create<int, int>(0, 2);
                 }
-                if (pieceType.Name.Equals("Knight"))
+                if (piece is Knight)
                 {
                     return Tuple.Create<int, int>(0, 3);
                 }
-                if (pieceType.Name.Equals("Rook"))
+                if (piece is Rook)
                 {
                     return Tuple.Create<int, int>(0, 4);
                 }
-                if (pieceType.Name.Equals("Pawn"))
+                if (piece is Pawn)
                 {
                     return Tuple.Create<int, int>(0, 7);
                 }
@@ -119,27 +124,27 @@ namespace DarkChessClient
             #region Black pieces
             else
             {
-                if (pieceType.Name.Equals("King"))
+                if (piece is King)
                 {
                     return Tuple.Create<int, int>(1, 0);
                 }
-                if (pieceType.Name.Equals("Queen"))
+                if (piece is Queen)
                 {
                     return Tuple.Create<int, int>(1, 1);
                 }
-                if (pieceType.Name.Equals("Bishop"))
+                if (piece is Bishop)
                 {
                     return Tuple.Create<int, int>(1, 2);
                 }
-                if (pieceType.Name.Equals("Knight"))
+                if (piece is Knight)
                 {
                     return Tuple.Create<int, int>(1, 3);
                 }
-                if (pieceType.Name.Equals("Rook"))
+                if (piece is Rook)
                 {
                     return Tuple.Create<int, int>(1, 4);
                 }
-                if (pieceType.Name.Equals("Pawn"))
+                if (piece is Pawn)
                 {
                     return Tuple.Create<int, int>(1, 7);
                 }
@@ -148,11 +153,60 @@ namespace DarkChessClient
             return Tuple.Create<int, int>(-1, -1);
         }
 
-        static void drawPieceOnBoard(GamePiece piece, Tuple<int, int> square)
+        // piece image for pawn promoting dialog
+        static Tuple<int, int> pieceImagePosition(Type pieceType, Player.color color)
         {
-            Tuple<int, int> t = pieceImagePosition(piece.GetType(), piece.PlayerRelevance.PlayersColor);
+            #region White pieces
+            if (color == Player.color.White)
+            {
+                if (pieceType.Name.Equals("Queen"))
+                {
+                    return Tuple.Create<int, int>(0, 1);
+                }
+                if (pieceType.Name.Equals("Rook"))
+                {
+                    return Tuple.Create<int, int>(0, 2);
+                }
+                if (pieceType.Name.Equals("Bishop"))
+                {
+                    return Tuple.Create<int, int>(0, 3);
+                }
+                if (pieceType.Name.Equals("Knight"))
+                {
+                    return Tuple.Create<int, int>(0, 4);
+                }
+            }
+            #endregion
+            #region Black pieces
+            else
+            {
+                if (pieceType.Name.Equals("Queen"))
+                {
+                    return Tuple.Create<int, int>(1, 1);
+                }
+                if (pieceType.Name.Equals("Rook"))
+                {
+                    return Tuple.Create<int, int>(1, 2);
+                }
+                if (pieceType.Name.Equals("Bishop"))
+                {
+                    return Tuple.Create<int, int>(1, 3);
+                }
+                if (pieceType.Name.Equals("Knight"))
+                {
+                    return Tuple.Create<int, int>(1, 4);
+                }
+            }
+            #endregion
+            return Tuple.Create<int, int>(-1, -1);
+        }
+
+        static void drawPieceOnBoard(GamePiece piece)
+        {
+            Tuple<int, int> square = piece.ContainingSquare.LocationOnBoard;
+            Tuple<int, int> t = pieceImagePosition(piece);
             Size size = pieces.Size;
-            graphics.DrawImage(pieces, square.Item1*boardSquareSize.Width, square.Item2*boardSquareSize.Height, new Rectangle(t.Item1* (size.Width / 6), t.Item2*( size.Height / 2), size.Width / 6, size.Height / 2), GraphicsUnit.Pixel);
+            graphics.DrawImage(pieces, square.Item1 * boardSquareSize.Width, square.Item2 * boardSquareSize.Height, new Rectangle(t.Item1 * (size.Width / 6), t.Item2 * (size.Height / 2), size.Width / 6, size.Height / 2), GraphicsUnit.Pixel);
         }
 
         static void drawUnseenOnBoard(Tuple<int, int> square)
@@ -165,11 +219,31 @@ namespace DarkChessClient
             graphics.DrawImage(blocked, square.Item1 * boardSquareSize.Width, square.Item2 * boardSquareSize.Height);
         }
 
-        static void drawCurrentBoard() { }
+        public static void DrawCurrentBoard(GameBoard gameBoard)
+        {
+            board.Invalidate();
+            foreach (BoardSquare square in gameBoard.Board)
+            {
+                if (!square.IsVisible)
+                {
+                    drawUnseenOnBoard(square.LocationOnBoard);
+                    continue;
+                }
+                if (square.IsBlocked)
+                {
+                    drawBlockedOnBoard(square.LocationOnBoard);
+                    continue;
+                }
+                if (square.ContainedPiece == null)
+                {
+                    drawPieceOnBoard(square.ContainedPiece);
+                }
+            }
+        }
 
         public static void test(Point click)
         {
-            Tuple<int, int> t = squareOfClick(click);
+            Tuple<int, int> t = SquareOfClick(click);
             Size size = pieces.Size;
             graphics.DrawImage(pieces, t.Item1 * boardSquareSize.Width, t.Item2 * boardSquareSize.Height, new Rectangle(0, 0, size.Width / 6, size.Height / 2), GraphicsUnit.Pixel);
         }

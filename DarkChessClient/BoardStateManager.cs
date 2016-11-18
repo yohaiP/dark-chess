@@ -7,8 +7,9 @@ using GameNotations;
 
 namespace DarkChessClient
 {
-    class BoardStateManager
+    class BoardStateManager //this class is the main class for running the client
     {
-        public GameBoard board;
+        Player user;
+        public GameBoard gameBoard = new GameBoard();
     }
 }
