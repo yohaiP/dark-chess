@@ -54,6 +54,7 @@
     <Compile Include="Knight.cs" />
     <Compile Include="MoveStrategy.cs" />
     <Compile Include="Pawn.cs" />
+    <Compile Include="PawnStrategy.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queen.cs" />

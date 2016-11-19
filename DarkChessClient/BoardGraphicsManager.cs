@@ -234,7 +234,7 @@ namespace DarkChessClient
                     drawBlockedOnBoard(square.LocationOnBoard);
                     continue;
                 }
-                if (square.ContainedPiece == null)
+                if (square.ContainedPiece != null)
                 {
                     drawPieceOnBoard(square.ContainedPiece);
                 }
@@ -244,8 +244,11 @@ namespace DarkChessClient
         public static void test(Point click)
         {
             Tuple<int, int> t = SquareOfClick(click);
-            Size size = pieces.Size;
-            graphics.DrawImage(pieces, t.Item1 * boardSquareSize.Width, t.Item2 * boardSquareSize.Height, new Rectangle(0, 0, size.Width / 6, size.Height / 2), GraphicsUnit.Pixel);
+            GameBoard board = new GameBoard();
+            BoardSquare square = board.Board[t.Item1, t.Item2];
+            square.ContainedPiece = new Pawn(new Player(Player.color.Black), square);
+            List<BoardSquare> l = square.ContainedPiece.strategy.LegalMoves;
+            DrawCurrentBoard(board);
         }
     }
 }

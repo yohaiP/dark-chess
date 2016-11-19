@@ -16,6 +16,11 @@ namespace GameNotations
         }
 
         readonly public color PlayersColor;
-        List<GamePiece> PiecesBelongsToPlayer;
+        public List<GamePiece> PiecesBelongsToPlayer = new List<GamePiece>();
+
+        public Player(color color)
+        {
+            PlayersColor = color;
+        }
     }
 }

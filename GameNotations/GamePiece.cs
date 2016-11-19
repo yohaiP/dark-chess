@@ -6,23 +6,18 @@ using System.Threading.Tasks;
 
 namespace GameNotations
 {
-    [Serializable]
     public abstract class GamePiece
     {
-        MoveStrategy Strategy;
+        public MoveStrategy strategy;
         readonly public Player PlayerRelevance;
-        public List<Tuple<int, int>> MovementDirections { get; protected set; }
         public BoardSquare ContainingSquare;
 
         public GamePiece(Player player, BoardSquare boardSquare)
         {
-            this.PlayerRelevance = player;
-            this.ContainingSquare = boardSquare;
-        }
-
-        public virtual List<BoardSquare> CalculateMoves()
-        {
-            return new List<BoardSquare>();
+            PlayerRelevance = player;
+            PlayerRelevance.PiecesBelongsToPlayer.Add(this);
+            ContainingSquare = boardSquare;
+            ContainingSquare.ContainedPiece = this;
         }
     }
 }
