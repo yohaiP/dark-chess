@@ -10,7 +10,7 @@ namespace GameNotations
     {
         bool initialMove = true;
 
-        public PawnStrategy(Pawn pawn):base(pawn, false, Tuple.Create(1, 1), Tuple.Create(1, -1)) { }
+        public PawnStrategy(Pawn pawn):base(pawn, false, Tuple.Create(1, -1), Tuple.Create(-1, -1)) { }
 
         public override List<BoardSquare> LegalMoves
         {
@@ -18,7 +18,7 @@ namespace GameNotations
             {
                 List<BoardSquare> legalmoves = base.LegalMoves;
                 BoardSquare square = base.belongsToPiece.ContainingSquare;
-                square += Tuple.Create(1, 0);
+                square += Tuple.Create(0, -1);
                 if (square.ContainedPiece != null && square.ContainedPiece.PlayerRelevance.PlayersColor != this.belongsToPiece.PlayerRelevance.PlayersColor)
                 {
                     square.IsBlocked = true;
@@ -26,7 +26,7 @@ namespace GameNotations
                 else
                 {
                     legalmoves.Add(square);
-                    square += Tuple.Create(1, 0);
+                    square += Tuple.Create(0, -1);
                     if(initialMove && square.ContainedPiece == null)
                     {
                         legalmoves.Add(square);

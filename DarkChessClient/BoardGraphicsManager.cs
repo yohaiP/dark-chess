@@ -101,23 +101,23 @@ namespace DarkChessClient
                 }
                 if (piece is Queen)
                 {
-                    return Tuple.Create<int, int>(0, 1);
+                    return Tuple.Create<int, int>(1, 0);
                 }
                 if (piece is Bishop)
                 {
-                    return Tuple.Create<int, int>(0, 2);
+                    return Tuple.Create<int, int>(2, 0);
                 }
                 if (piece is Knight)
                 {
-                    return Tuple.Create<int, int>(0, 3);
+                    return Tuple.Create<int, int>(3, 0);
                 }
                 if (piece is Rook)
                 {
-                    return Tuple.Create<int, int>(0, 4);
+                    return Tuple.Create<int, int>(4, 0);
                 }
                 if (piece is Pawn)
                 {
-                    return Tuple.Create<int, int>(0, 7);
+                    return Tuple.Create<int, int>(5, 0);
                 }
             }
             #endregion
@@ -126,7 +126,7 @@ namespace DarkChessClient
             {
                 if (piece is King)
                 {
-                    return Tuple.Create<int, int>(1, 0);
+                    return Tuple.Create<int, int>(0, 1);
                 }
                 if (piece is Queen)
                 {
@@ -134,19 +134,19 @@ namespace DarkChessClient
                 }
                 if (piece is Bishop)
                 {
-                    return Tuple.Create<int, int>(1, 2);
+                    return Tuple.Create<int, int>(2, 1);
                 }
                 if (piece is Knight)
                 {
-                    return Tuple.Create<int, int>(1, 3);
+                    return Tuple.Create<int, int>(3, 1);
                 }
                 if (piece is Rook)
                 {
-                    return Tuple.Create<int, int>(1, 4);
+                    return Tuple.Create<int, int>(4, 1);
                 }
                 if (piece is Pawn)
                 {
-                    return Tuple.Create<int, int>(1, 7);
+                    return Tuple.Create<int, int>(5, 1);
                 }
             }
             #endregion
@@ -161,19 +161,19 @@ namespace DarkChessClient
             {
                 if (pieceType.Name.Equals("Queen"))
                 {
-                    return Tuple.Create<int, int>(0, 1);
+                    return Tuple.Create<int, int>(1, 0);
                 }
                 if (pieceType.Name.Equals("Rook"))
                 {
-                    return Tuple.Create<int, int>(0, 2);
+                    return Tuple.Create<int, int>(2, 0);
                 }
                 if (pieceType.Name.Equals("Bishop"))
                 {
-                    return Tuple.Create<int, int>(0, 3);
+                    return Tuple.Create<int, int>(3, 0);
                 }
                 if (pieceType.Name.Equals("Knight"))
                 {
-                    return Tuple.Create<int, int>(0, 4);
+                    return Tuple.Create<int, int>(4, 0);
                 }
             }
             #endregion
@@ -186,15 +186,15 @@ namespace DarkChessClient
                 }
                 if (pieceType.Name.Equals("Rook"))
                 {
-                    return Tuple.Create<int, int>(1, 2);
+                    return Tuple.Create<int, int>(2, 1);
                 }
                 if (pieceType.Name.Equals("Bishop"))
                 {
-                    return Tuple.Create<int, int>(1, 3);
+                    return Tuple.Create<int, int>(3, 1);
                 }
                 if (pieceType.Name.Equals("Knight"))
                 {
-                    return Tuple.Create<int, int>(1, 4);
+                    return Tuple.Create<int, int>(4, 1);
                 }
             }
             #endregion

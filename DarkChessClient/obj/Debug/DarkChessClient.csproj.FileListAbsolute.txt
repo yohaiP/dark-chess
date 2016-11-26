@@ -26,3 +26,18 @@ C:\Users\אני\Documents\Visual Studio 2015\Projects\DarkChess\DarkChessClient\
 C:\Users\אני\Documents\Visual Studio 2015\Projects\DarkChess\DarkChessClient\obj\Debug\DarkChessClient.pdb
 C:\Users\אני\Documents\Visual Studio 2015\Projects\DarkChess\DarkChessClient\bin\Debug\Newtonsoft.Json.dll
 C:\Users\אני\Documents\Visual Studio 2015\Projects\DarkChess\DarkChessClient\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Arnon Arad\Source\Repos\dark-chess\DarkChessClient\bin\Debug\DarkChessClient.exe.config
+C:\Users\Arnon Arad\Source\Repos\dark-chess\DarkChessClient\obj\Debug\DarkChessClient.exe
+C:\Users\Arnon Arad\Source\Repos\dark-chess\DarkChessClient\obj\Debug\DarkChessClient.pdb
+C:\Users\Arnon Arad\Source\Repos\dark-chess\DarkChessClient\bin\Debug\DarkChessClient.exe
+C:\Users\Arnon Arad\Source\Repos\dark-chess\DarkChessClient\bin\Debug\DarkChessClient.pdb
+C:\Users\Arnon Arad\Source\Repos\dark-chess\DarkChessClient\bin\Debug\GameNotations.dll
+C:\Users\Arnon Arad\Source\Repos\dark-chess\DarkChessClient\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Arnon Arad\Source\Repos\dark-chess\DarkChessClient\bin\Debug\GameNotations.pdb
+C:\Users\Arnon Arad\Source\Repos\dark-chess\DarkChessClient\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Arnon Arad\Source\Repos\dark-chess\DarkChessClient\obj\Debug\DarkChessClient.csprojResolveAssemblyReference.cache
+C:\Users\Arnon Arad\Source\Repos\dark-chess\DarkChessClient\obj\Debug\DarkChessClient.DarkChessClient.resources
+C:\Users\Arnon Arad\Source\Repos\dark-chess\DarkChessClient\obj\Debug\DarkChessClient.ConnectDialog.resources
+C:\Users\Arnon Arad\Source\Repos\dark-chess\DarkChessClient\obj\Debug\DarkChessClient.PromotionDialog.resources
+C:\Users\Arnon Arad\Source\Repos\dark-chess\DarkChessClient\obj\Debug\DarkChessClient.Properties.Resources.resources
+C:\Users\Arnon Arad\Source\Repos\dark-chess\DarkChessClient\obj\Debug\DarkChessClient.csproj.GenerateResource.Cache

@@ -10,3 +10,9 @@ C:\Users\אני\Documents\Visual Studio 2015\Projects\DarkChess\GameNotations\bi
 C:\Users\אני\Documents\Visual Studio 2015\Projects\DarkChess\GameNotations\obj\Debug\GameNotations.dll
 C:\Users\אני\Documents\Visual Studio 2015\Projects\DarkChess\GameNotations\obj\Debug\GameNotations.pdb
 C:\Users\אני\Documents\Visual Studio 2015\Projects\DarkChess\GameNotations\obj\Debug\GameNotations.csprojResolveAssemblyReference.cache
+C:\Users\Arnon Arad\Source\Repos\dark-chess\GameNotations\bin\Debug\GameNotations.dll.config
+C:\Users\Arnon Arad\Source\Repos\dark-chess\GameNotations\bin\Debug\GameNotations.dll
+C:\Users\Arnon Arad\Source\Repos\dark-chess\GameNotations\bin\Debug\GameNotations.pdb
+C:\Users\Arnon Arad\Source\Repos\dark-chess\GameNotations\obj\Debug\GameNotations.csprojResolveAssemblyReference.cache
+C:\Users\Arnon Arad\Source\Repos\dark-chess\GameNotations\obj\Debug\GameNotations.dll
+C:\Users\Arnon Arad\Source\Repos\dark-chess\GameNotations\obj\Debug\GameNotations.pdb
