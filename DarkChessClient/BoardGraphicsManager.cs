@@ -14,6 +14,7 @@ namespace DarkChessClient
         static System.Windows.Forms.PictureBox board;
 
         static Graphics graphics;
+        static Bitmap graphicsBmp;
         static Bitmap pieces;
         static Bitmap unseen;
         static Bitmap blocked;
@@ -31,7 +32,8 @@ namespace DarkChessClient
             boardSquareSize = new Size(size.Width / 8, size.Height / 8);
             boardSquareCenter = new Size(boardSquareSize.Width / 2, boardSquareSize.Height / 2);
 
-            graphics = client.board.CreateGraphics();
+            graphicsBmp = new Bitmap(size.Width, size.Height);
+            graphics = Graphics.FromImage(graphicsBmp);
 
             pieces = (Bitmap)Image.FromFile(@"chess graphics/pieces.png");
             unseen = (Bitmap)Image.FromFile(@"chess graphics/unseen.png");
@@ -219,9 +221,8 @@ namespace DarkChessClient
             graphics.DrawImage(blocked, square.Item1 * boardSquareSize.Width, square.Item2 * boardSquareSize.Height);
         }
 
-        public static void DrawCurrentBoard(GameBoard gameBoard)
+        static void DrawCurrentStateOnBmp(GameBoard gameBoard)
         {
-            board.Invalidate();
             foreach (BoardSquare square in gameBoard.Board)
             {
                 if (!square.IsVisible)
@@ -241,6 +242,12 @@ namespace DarkChessClient
             }
         }
 
+        public static void DrawBmpOnGameBoard()
+        {
+            board.Invalidate();
+            board.Image = graphicsBmp;
+        }
+
         public static void test(Point click)
         {
             Tuple<int, int> t = SquareOfClick(click);
@@ -248,7 +255,8 @@ namespace DarkChessClient
             BoardSquare square = board.Board[t.Item1, t.Item2];
             square.ContainedPiece = new Pawn(new Player(Player.color.Black), square);
             List<BoardSquare> l = square.ContainedPiece.strategy.LegalMoves;
-            DrawCurrentBoard(board);
+            DrawCurrentStateOnBmp(board);
+            DrawBmpOnGameBoard();
         }
     }
 }
