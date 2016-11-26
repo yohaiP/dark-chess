@@ -14,11 +14,18 @@ namespace DarkChessClient
         static IPEndPoint serverEP;
         static Socket serverConnection;
 
-        static void ConnectToGameServer(IPAddress serverAddress, int serverPort)
+        public static void ConnectToGameServer(IPAddress serverAddress, int serverPort)
         {
-            serverConnection = new Socket(SocketType.Stream, ProtocolType.Tcp);
-            serverEP = new IPEndPoint(serverAddress, serverPort);
-            serverConnection.Connect(serverEP);
+            try
+            {
+                serverConnection = new Socket(SocketType.Stream, ProtocolType.Tcp);
+                serverEP = new IPEndPoint(serverAddress, serverPort);
+                serverConnection.Connect(serverEP);
+            }
+            catch (SocketException)
+            {
+                System.Windows.Forms.MessageBox.Show("There is no listening server on the other side");
+            }
         }
     }
 }

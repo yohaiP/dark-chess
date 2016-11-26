@@ -14,7 +14,7 @@ namespace DarkChessClient
         static System.Windows.Forms.PictureBox board;
 
         static Graphics graphics;
-        static Bitmap graphicsBmp;
+        static Bitmap graphicsBmpBuffer;
         static Bitmap pieces;
         static Bitmap unseen;
         static Bitmap blocked;
@@ -32,8 +32,8 @@ namespace DarkChessClient
             boardSquareSize = new Size(size.Width / 8, size.Height / 8);
             boardSquareCenter = new Size(boardSquareSize.Width / 2, boardSquareSize.Height / 2);
 
-            graphicsBmp = new Bitmap(size.Width, size.Height);
-            graphics = Graphics.FromImage(graphicsBmp);
+            graphicsBmpBuffer = new Bitmap(size.Width, size.Height);
+            graphics = Graphics.FromImage(graphicsBmpBuffer);
 
             pieces = (Bitmap)Image.FromFile(@"chess graphics/pieces.png");
             unseen = (Bitmap)Image.FromFile(@"chess graphics/unseen.png");
@@ -221,16 +221,28 @@ namespace DarkChessClient
             graphics.DrawImage(blocked, square.Item1 * boardSquareSize.Width, square.Item2 * boardSquareSize.Height);
         }
 
-        static void DrawCurrentStateOnBmp(GameBoard gameBoard)
+        static void DrawCurrentStateOnBmp(GameBoard gameBoard, Player player)
         {
-            foreach (BoardSquare square in gameBoard.Board)
+            graphics.Clear(Color.Transparent);
+            board.BackgroundImage = Image.FromFile(@"chess graphics/board.png");
+            BoardSquare[,] boardBuffer;
+            if(player.PlayersColor == Player.color.Black)
+            {
+                boardBuffer = GameBoard.Flip(gameBoard.Board);
+            }
+            else
+            {
+                boardBuffer = gameBoard.Board;
+            }
+
+            foreach (BoardSquare square in boardBuffer)
             {
                 if (!square.IsVisible)
                 {
                     drawUnseenOnBoard(square.LocationOnBoard);
                     continue;
                 }
-                if (square.IsBlocked)
+                if (square.IsBlocked && square.ContainedPiece.PlayerRelevance.PlayersColor != player.PlayersColor)
                 {
                     drawBlockedOnBoard(square.LocationOnBoard);
                     continue;
@@ -244,18 +256,18 @@ namespace DarkChessClient
 
         public static void DrawBmpOnGameBoard()
         {
-            board.Invalidate();
-            board.Image = graphicsBmp;
+            board.Refresh();
+            board.BackgroundImage = Image.FromFile(@"chess graphics/board.png");
+            board.Image = graphicsBmpBuffer;
         }
 
         public static void test(Point click)
         {
             Tuple<int, int> t = SquareOfClick(click);
-            GameBoard board = new GameBoard();
-            BoardSquare square = board.Board[t.Item1, t.Item2];
+            BoardSquare square = GameBoard.Instance.Board[t.Item1, t.Item2];
             square.ContainedPiece = new Pawn(new Player(Player.color.Black), square);
             List<BoardSquare> l = square.ContainedPiece.strategy.LegalMoves;
-            DrawCurrentStateOnBmp(board);
+            DrawCurrentStateOnBmp(GameBoard.Instance, new Player(Player.color.Black));
             DrawBmpOnGameBoard();
         }
     }

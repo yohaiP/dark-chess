@@ -10,6 +10,5 @@ namespace DarkChessClient
     class BoardStateManager //this class is the main class for running the client
     {
         Player user;
-        public GameBoard gameBoard = new GameBoard();
     }
 }

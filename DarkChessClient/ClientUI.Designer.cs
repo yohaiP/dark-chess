@@ -30,34 +30,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.connectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.XPointerBoardLocationStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.YPointerBoardLocationStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.turnNotificationLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.promotionNotificationLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.board = new System.Windows.Forms.PictureBox();
-            this.menuStrip.SuspendLayout();
+            this.ConnectBtn = new System.Windows.Forms.Button();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.board)).BeginInit();
             this.SuspendLayout();
-            // 
-            // menuStrip
-            // 
-            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.connectToolStripMenuItem});
-            this.menuStrip.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(554, 24);
-            this.menuStrip.TabIndex = 0;
-            this.menuStrip.Text = "menuStrip1";
-            // 
-            // connectToolStripMenuItem
-            // 
-            this.connectToolStripMenuItem.Name = "connectToolStripMenuItem";
-            this.connectToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
-            this.connectToolStripMenuItem.Text = "connect...";
             // 
             // statusStrip
             // 
@@ -66,7 +48,7 @@
             this.YPointerBoardLocationStatusLabel,
             this.turnNotificationLabel,
             this.promotionNotificationLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 579);
+            this.statusStrip.Location = new System.Drawing.Point(0, 637);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(554, 24);
             this.statusStrip.TabIndex = 1;
@@ -110,35 +92,42 @@
             // 
             // board
             // 
-            this.board.BackgroundImage = System.Drawing.Image.FromFile(@"chess graphics/board.png");
-            this.board.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.board.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.board.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.board.Cursor = System.Windows.Forms.Cursors.Default;
+            this.board.Image = global::DarkChessClient.Properties.Resources.board;
             this.board.Location = new System.Drawing.Point(0, 24);
             this.board.Name = "board";
             this.board.Size = new System.Drawing.Size(550, 550);
-            this.board.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.board.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.board.TabIndex = 2;
             this.board.TabStop = false;
-            this.board.Click += board_Click;
+            this.board.Click += new System.EventHandler(this.board_Click);
+            // 
+            // ConnectBtn
+            // 
+            this.ConnectBtn.Location = new System.Drawing.Point(12, 580);
+            this.ConnectBtn.Name = "ConnectBtn";
+            this.ConnectBtn.Size = new System.Drawing.Size(75, 23);
+            this.ConnectBtn.TabIndex = 3;
+            this.ConnectBtn.Text = "Connect...";
+            this.ConnectBtn.UseVisualStyleBackColor = true;
+            this.ConnectBtn.Click += new System.EventHandler(this.ConnectBtn_Click);
             // 
             // DarkChessClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(554, 603);
+            this.ClientSize = new System.Drawing.Size(554, 661);
+            this.Controls.Add(this.ConnectBtn);
             this.Controls.Add(this.board);
             this.Controls.Add(this.statusStrip);
-            this.Controls.Add(this.menuStrip);
             this.HelpButton = true;
-            this.MainMenuStrip = this.menuStrip;
             this.MaximizeBox = false;
             this.Name = "DarkChessClient";
             this.Text = "DarkChess client";
             this.Load += new System.EventHandler(this.DarkChessClient_Load);
-            this.menuStrip.ResumeLayout(false);
-            this.menuStrip.PerformLayout();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.board)).EndInit();
@@ -148,9 +137,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip;
-        private System.Windows.Forms.ToolStripMenuItem connectToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel XPointerBoardLocationStatusLabel;
         private System.Windows.Forms.ToolStripStatusLabel YPointerBoardLocationStatusLabel;
@@ -159,6 +145,7 @@
 
         private System.Windows.Forms.ToolStripStatusLabel turnNotificationLabel;
         private System.Windows.Forms.ToolStripStatusLabel promotionNotificationLabel;
+        private System.Windows.Forms.Button ConnectBtn;
     }
 }
 

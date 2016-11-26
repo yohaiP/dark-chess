@@ -21,14 +21,20 @@ namespace DarkChessClient
         void board_Click(object sender, EventArgs e)
         {
             MouseEventArgs me = (MouseEventArgs)e;
-            XPointerBoardLocationStatusLabel.Text = $"{me.X}";
-            YPointerBoardLocationStatusLabel.Text = $"{me.Y}";
+            XPointerBoardLocationStatusLabel.Text = $"{BoardGraphicsManager.SquareOfClick(me.Location).Item1}";
+            YPointerBoardLocationStatusLabel.Text = $"{BoardGraphicsManager.SquareOfClick(me.Location).Item2}";
             BoardGraphicsManager.test(me.Location);
         }
 
         private void DarkChessClient_Load(object sender, EventArgs e)
         {
             BoardGraphicsManager.CreateGraphics(sender);
+        }
+
+        private void ConnectBtn_Click(object sender, EventArgs e)
+        {
+            ConnectDialog cd = new ConnectDialog();
+            cd.Show();
         }
     }
 }

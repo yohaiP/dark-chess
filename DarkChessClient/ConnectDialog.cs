@@ -17,19 +17,19 @@ namespace DarkChessClient
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void OnConnect(object sender, EventArgs e)
         {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+            System.Net.IPAddress serverAddress = null;
+            try
+            {
+                serverAddress = System.Net.IPAddress.Parse(ServerAddress.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("the IP Address you entered is spoiled");
+            }
+            NetworkManager.ConnectToGameServer(serverAddress, 1000);
+            ((ConnectDialog)sender).Close();
         }
     }
 }

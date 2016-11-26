@@ -9,7 +9,7 @@ namespace GameNotations
     [Serializable]
     public class BoardSquare
     {
-        readonly public Tuple<int, int> LocationOnBoard;
+        public Tuple<int, int> LocationOnBoard;
         public GameBoard OnBoard;
         public GamePiece ContainedPiece;
         //[NonSerialized]

@@ -7,10 +7,18 @@ using System.Threading.Tasks;
 namespace GameNotations
 {
     [Serializable]
-    public class GameBoard
+    public sealed class GameBoard
     {
         public BoardSquare[,] Board;
-        public GameBoard()
+        private static readonly GameBoard instance = new GameBoard();
+        public static GameBoard Instance
+        {
+            get
+            {
+                return instance;
+            }
+        }
+        private GameBoard()
         {
             Board = new BoardSquare[8, 8];
             for (int i = 0; i < 8; i++)
@@ -22,18 +30,23 @@ namespace GameNotations
             }
         }
 
-        public void Flip()
+        public static BoardSquare[,] Flip(BoardSquare[,] board)
         {
-            BoardSquare temp;
+            if(board.GetLength(0) != 8 || board.GetLength(1) != 8)
+            {
+                throw new Exception("board is not in the right size");
+            }
+
+            BoardSquare[,] outBoard = new BoardSquare[8, 8];
             for (int j = 0; j < 8; j++)
             {
-                for (int i = 0; i < 4; i++)
+                for (int i = 0; i < 8; i++)
                 {
-                    temp = Board[i, j];
-                    Board[i, j] = Board[7 - i, j];
-                    Board[7 - i, j] = temp;
+                    outBoard[i, j] = board[i, 7 - j];
+                    outBoard[i, j].LocationOnBoard = board[i, 7 - j].LocationOnBoard;
                 }
             }
+            return outBoard;
         }
     }
 }

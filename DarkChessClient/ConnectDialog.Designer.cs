@@ -28,48 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.ServerAddress = new System.Windows.Forms.TextBox();
+            this.ConnectBtn = new System.Windows.Forms.Button();
+            this.IPLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // textBox1
+            // ServerAddress
             // 
-            this.textBox1.Location = new System.Drawing.Point(15, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(254, 20);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.ServerAddress.Location = new System.Drawing.Point(15, 25);
+            this.ServerAddress.Name = "ServerAddress";
+            this.ServerAddress.Size = new System.Drawing.Size(254, 20);
+            this.ServerAddress.TabIndex = 0;
+            this.ServerAddress.UseWaitCursor = true;
             // 
-            // button1
+            // ConnectBtn
             // 
-            this.button1.Location = new System.Drawing.Point(275, 23);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "connect\r\n\r\n";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.UseWaitCursor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.ConnectBtn.Location = new System.Drawing.Point(275, 23);
+            this.ConnectBtn.Name = "ConnectBtn";
+            this.ConnectBtn.Size = new System.Drawing.Size(75, 23);
+            this.ConnectBtn.TabIndex = 1;
+            this.ConnectBtn.Text = "connect\r\n\r\n";
+            this.ConnectBtn.UseVisualStyleBackColor = true;
+            this.ConnectBtn.UseWaitCursor = true;
+            this.ConnectBtn.Click += new System.EventHandler(this.OnConnect);
             // 
-            // label1
+            // IPLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Type IP of game server:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.IPLabel.AutoSize = true;
+            this.IPLabel.Location = new System.Drawing.Point(12, 9);
+            this.IPLabel.Name = "IPLabel";
+            this.IPLabel.Size = new System.Drawing.Size(120, 13);
+            this.IPLabel.TabIndex = 2;
+            this.IPLabel.Text = "Type IP of game server:";
+            this.IPLabel.UseWaitCursor = true;
             // 
             // ConnectDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(363, 61);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.IPLabel);
+            this.Controls.Add(this.ConnectBtn);
+            this.Controls.Add(this.ServerAddress);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ConnectDialog";
@@ -85,8 +85,8 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox ServerAddress;
+        private System.Windows.Forms.Button ConnectBtn;
+        private System.Windows.Forms.Label IPLabel;
     }
 }
